@@ -18,7 +18,9 @@ config :my_app, MyAppWeb.Endpoint,
   http: [port: 4002],
   server: false
 
-config :pow, Pow.Ecto.Schema.Password, iterations: 1
+config :argon2_elixir,
+  t_cost: 1,
+  m_cost: 8
 
 # Print only warnings and errors during test
 config :logger, level: :warn
