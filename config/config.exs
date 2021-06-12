@@ -29,7 +29,8 @@ config :phoenix, :json_library, Jason
 # Use Pow for authentication
 config :my_app, :pow,
   user: MyApp.Users.User,
-  repo: MyApp.Repo
+  repo: MyApp.Repo,
+  web_module: MyAppWeb
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
