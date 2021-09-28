@@ -31,7 +31,7 @@ defmodule MyAppWeb.EnsureRolePlug do
   end
 
   defp has_role?(user, roles) do
-    MyApp.Users.user_has_role?(user, roles)
+    MyApp.Accounts.user_has_role?(user, roles)
   end
 
   defp maybe_halt(true, conn), do: conn

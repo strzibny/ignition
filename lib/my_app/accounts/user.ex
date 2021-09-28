@@ -1,4 +1,4 @@
-defmodule MyApp.Users.User do
+defmodule MyApp.Accounts.User do
   use Ecto.Schema
 
   use Pow.Ecto.Schema,

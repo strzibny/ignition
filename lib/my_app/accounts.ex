@@ -1,5 +1,5 @@
-defmodule MyApp.Users do
-  alias MyApp.{Repo, Users.User}
+defmodule MyApp.Accounts do
+  alias MyApp.{Repo, Accounts.User}
 
   @type t :: %User{}
 

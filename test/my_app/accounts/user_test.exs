@@ -1,7 +1,7 @@
-defmodule MyApp.Users.UserTest do
+defmodule MyApp.Accounts.UserTest do
   use MyApp.DataCase
 
-  alias MyApp.Users.User
+  alias MyApp.Accounts.User
 
   test "changeset/2 sets default role" do
     user =
