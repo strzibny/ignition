@@ -62,6 +62,9 @@ defmodule MyAppWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
+      # Import LiveView and .heex helpers (live_render, live_patch, <.form>, etc)
+      import Phoenix.LiveView.Helpers
+
       import MyAppWeb.ErrorHelpers
       import MyAppWeb.Gettext
       alias MyAppWeb.Router.Helpers, as: Routes
