@@ -28,7 +28,7 @@ config :phoenix, :json_library, Jason
 
 # Use Pow for authentication
 config :my_app, :pow,
-  user: MyApp.Users.User,
+  user: MyApp.Accounts.User,
   repo: MyApp.Repo,
   web_module: MyAppWeb,
   cache_store_backend: Pow.Store.Backend.MnesiaCache
