@@ -16,12 +16,13 @@ config :my_app, MyApp.Repo,
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
 config :my_app, MyAppWeb.Endpoint,
+  # Binding to loopback ipv4 address prevents access from other machines.
+  # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
-  debug_errors: true,
+  check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  check_origin: false,
-  secret_key_base: "6cd9gX8Dq7KbBGhbdN5EWiEr8tfy8+wTjEG5v+cxngtFL7RIvUKXspXj7J5TN13m",
+  secret_key_base: "kDXmbf7kODQgikxDVDgK+gmU+xFaiMos872VBKH6iJ0vPUlSNQArN7EgiDwQx9IQ",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
