@@ -23,9 +23,12 @@ config :my_app, MyAppWeb.Endpoint,
 # In test we don't send emails.
 config :my_app, MyApp.Mailer, adapter: Swoosh.Adapters.Test
 
+# Speed up tests for Pow auth
 config :argon2_elixir,
   t_cost: 1,
   m_cost: 8
+
+config :pow, Pow.Ecto.Schema.Password, iterations: 1
 
 # Print only warnings and errors during test
 config :logger, level: :warn

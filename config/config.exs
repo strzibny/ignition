@@ -25,6 +25,7 @@ config :my_app, MyAppWeb.Endpoint,
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
 config :my_app, MyApp.Mailer, adapter: Swoosh.Adapters.Local
+config :my_app, MyAppWeb.Pow.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
@@ -51,7 +52,9 @@ config :my_app, :pow,
   user: MyApp.Accounts.User,
   repo: MyApp.Repo,
   web_module: MyAppWeb,
-  cache_store_backend: Pow.Store.Backend.MnesiaCache
+  cache_store_backend: Pow.Store.Backend.MnesiaCache,
+  extensions: [PowResetPassword, PowEmailConfirmation],
+  mailer_backend: MyAppWeb.Pow.Mailer
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

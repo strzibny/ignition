@@ -16,6 +16,14 @@ config :my_app, MyAppWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+# E-mails in production
+# config :my_app, MyApp.Mailer,
+#   adapter: Swoosh.Adapters.Sendgrid,
+#   api_key: "SG.x.x"
+# config :my_app, MyAppWeb.Pow.Mailer,
+#   adapter: Swoosh.Adapters.Sendgrid,
+#   api_key: "SG.x.x"
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

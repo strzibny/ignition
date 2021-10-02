@@ -2,6 +2,9 @@ defmodule MyAppWeb.Router do
   use MyAppWeb, :router
   use Pow.Phoenix.Router
 
+  use Pow.Extension.Phoenix.Router,
+    extensions: [PowResetPassword, PowEmailConfirmation]
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -26,6 +29,7 @@ defmodule MyAppWeb.Router do
     pipe_through :browser
 
     pow_routes()
+    pow_extension_routes()
   end
 
   scope "/", MyAppWeb do
