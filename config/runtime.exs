@@ -9,10 +9,13 @@ import Config
 if config_env() == :prod do
   database_url =
     System.get_env("DATABASE_URL") ||
-      raise """
-      environment variable DATABASE_URL is missing.
-      For example: ecto://USER:PASS@HOST/DATABASE
-      """
+      "postgresql://my_app@localhost/my_app"
+
+  #   System.get_env("DATABASE_URL") ||
+  # raise """
+  # environment variable DATABASE_URL is missing.
+  # For example: ecto://USER:PASS@HOST/DATABASE
+  # """
 
   config :my_app, MyApp.Repo,
     # ssl: true,
@@ -27,10 +30,14 @@ if config_env() == :prod do
   # variable instead.
   secret_key_base =
     System.get_env("SECRET_KEY_BASE") ||
-      raise """
-      environment variable SECRET_KEY_BASE is missing.
-      You can generate one by calling: mix phx.gen.secret
-      """
+      "kDXmbf7kODQgikxDVDgK+gmU+xFaiMos872VBKH6iJ0vPUlSNQArN7EgiDwQx9IQ"
+
+  #   secret_key_base =
+  # System.get_env("SECRET_KEY_BASE") || "940394039403940343"
+  #   raise """
+  #   environment variable SECRET_KEY_BASE is missing.
+  #   You can generate one by calling: mix phx.gen.secret
+  #   """
 
   config :my_app, MyAppWeb.Endpoint,
     http: [
@@ -41,7 +48,11 @@ if config_env() == :prod do
       ip: {0, 0, 0, 0, 0, 0, 0, 0},
       port: String.to_integer(System.get_env("PORT") || "4000")
     ],
-    secret_key_base: secret_key_base
+    secret_key_base: secret_key_base,
+    server: true
+
+  # Set a location for Mnesia database
+  config :mnesia, dir: to_charlist(System.get_env("MNESIA_DIR") || "./mnesia.app")
 
   # ## Using releases
   #
