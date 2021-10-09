@@ -10,8 +10,12 @@ defmodule MyAppWeb.Endpoint do
     signing_salt: "LBrqVvag"
   ]
 
+  @pow_config otp_app: :my_app
+
   socket "/socket", MyAppWeb.UserSocket,
-    websocket: true,
+    websocket: [
+      connect_info: [pow_config: @pow_config]
+    ],
     longpoll: false
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]

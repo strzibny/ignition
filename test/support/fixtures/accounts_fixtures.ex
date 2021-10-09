@@ -24,4 +24,18 @@ defmodule MyApp.AccountsFixtures do
 
     user
   end
+
+  @doc """
+  Generate a team.
+  """
+  def team_fixture(attrs \\ %{}) do
+    {:ok, team} =
+      attrs
+      |> Enum.into(%{
+        name: "some name"
+      })
+      |> MyApp.Accounts.create_team()
+
+    team
+  end
 end

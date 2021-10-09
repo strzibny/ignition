@@ -54,7 +54,8 @@ config :my_app, :pow,
   web_module: MyAppWeb,
   cache_store_backend: Pow.Store.Backend.MnesiaCache,
   extensions: [PowResetPassword, PowEmailConfirmation],
-  mailer_backend: MyAppWeb.Pow.Mailer
+  mailer_backend: MyAppWeb.Pow.Mailer,
+  controller_callbacks: MyAppWeb.Pow.ControllerCallbacks
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -35,6 +35,13 @@ defmodule MyAppWeb.Router do
   scope "/", MyAppWeb do
     pipe_through :browser
 
+    live "/team", TeamLive.Index, :index
+    live "/team/new", TeamLive.Index, :new
+    live "/team/:id/edit", TeamLive.Index, :edit
+
+    live "/team/:id", TeamLive.Show, :show
+    live "/team/:id/show/edit", TeamLive.Show, :edit
+
     get "/", PageController, :index
   end
 

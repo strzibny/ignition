@@ -40,6 +40,7 @@ defmodule MyAppWeb do
       unquote(view_helpers())
 
       import Phoenix.LiveView.Helpers
+      import MyAppWeb.LiveHelpers
     end
   end
 
@@ -84,6 +85,7 @@ defmodule MyAppWeb do
 
       # Import LiveView and .heex helpers (live_render, live_patch, <.form>, etc)
       import Phoenix.LiveView.Helpers
+      import MyAppWeb.LiveHelpers
 
       import MyAppWeb.ErrorHelpers
       import MyAppWeb.Gettext
