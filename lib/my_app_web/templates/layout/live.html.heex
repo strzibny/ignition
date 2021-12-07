@@ -12,7 +12,17 @@
   <body>
     <header>
       <section class="container">
+        <nav role="navigation">
+          <ul>
+            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
 
+            <span><%= link "Sign out", to: Routes.pow_session_path(@socket, :delete), method: :delete %></span>
+
+            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
+              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@socket, :home) %></li>
+            <% end %>
+          </ul>
+        </nav>
       </section>
     </header>
     <main class="container">
